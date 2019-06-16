@@ -76,7 +76,12 @@ import { template } from '@babel/core';
         console.log("removed item method")
     };
     clearCart = ( ) => {
-        console.log("cleared cart method")
+       this.setState(() => {
+           return {cart:[]}
+       },() => {
+           this.setProducts();
+           this.addTotals();
+       })
     };
     addTotals = ( ) => {
         let subTotal = 0;
